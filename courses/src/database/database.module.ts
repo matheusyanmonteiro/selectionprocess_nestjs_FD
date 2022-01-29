@@ -7,7 +7,7 @@ import { CourseEntity } from 'src/courses/entity/course.entity';
   type: 'postgres',
   host: 'localhost',
   username: 'postgres',
-  password: '123',
+  password: '12345',
   database: 'course',
   entities: [CourseEntity],
   synchronize: true

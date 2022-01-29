@@ -11,6 +11,10 @@ export class CoursesService {
     private courseRepository: Repository<CourseEntity>)
     {}
 
+    async findAll(): Promise<CourseEntity[]> {
+      return await this.courseRepository.find();
+    }
+
     async create(course: ICourse): Promise<CourseEntity> {
       return await this.courseRepository.save(course);
     }
