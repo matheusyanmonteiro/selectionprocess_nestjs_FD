@@ -15,13 +15,13 @@ export class CoursesController {
   }
 
   @Post()
-  @ApiBody({ type: CourseDto})
+  @ApiBody({ type: CourseDto })
   async Create(@Body() course: CourseDto): Promise<CourseEntity> {
     return await this.courseService.create(course);
   }
 
   @Put(':id')
-  @ApiBody({ type: CourseDto})
+  @ApiBody({ type: CourseDto })
   async update(@Param() id:string, @Body() course: CourseEntity): Promise<void> {
     return await this.courseService.update(id,course);
   }
