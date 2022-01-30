@@ -48,9 +48,6 @@ export class CoursesService {
     } = courseData;
       const course = await this.find(idCourse);
 
-      console.log(id);
-      console.log(courseData);
-
       course.name = name ? name : course.name;
       course.description = description ? description : course.description;
       course.duration = duration ? duration : course.duration;
