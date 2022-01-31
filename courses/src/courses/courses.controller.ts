@@ -3,6 +3,7 @@ import { ApiBody } from '@nestjs/swagger';
 import { CoursesService } from './courses.service';
 import { CourseDto } from './dtos/course.dto';
 import { CourseEntity } from './entity/course.entity';
+import { ICourse } from './interface/course.interface';
 
 @Controller('courses')
 export class CoursesController {
@@ -12,6 +13,11 @@ export class CoursesController {
   @Get()
   async index(): Promise<CourseEntity[]> {
     return await this.courseService.findAll();
+  }
+
+  @Get(':id')
+  async findOne(@Param() id: string): Promise<ICourse>{
+    return this.courseService.find(id);
   }
 
   @Post()

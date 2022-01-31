@@ -1,8 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { UserEntity } from "src/users/entity/user.entity";
 
 export class UserCourseDTO {
   @ApiProperty()
-  id_user: string;
+  users: UserEntity[]
   @ApiProperty()
-  id_couse: string;
+  id_course: string;
 }

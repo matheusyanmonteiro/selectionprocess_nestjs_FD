@@ -1,9 +1,18 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { UsercoursesController } from './usercourses.controller';
-import { UsercoursesService } from './usercourses.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserEntity } from 'src/users/entity/user.entity';
+import { UsersService } from 'src/users/users.service';
+import { UserCourseEntity } from './entity/userCourse.entity';
+import { UserCoursesController } from './usercourses.controller';
+import { UserCoursesService } from './usercourses.service';
 
 @Module({
-  controllers: [UsercoursesController],
-  providers: [UsercoursesService]
+  imports:[
+    HttpModule,
+    TypeOrmModule.forFeature([UserCourseEntity, UserEntity])
+  ],
+  controllers: [UserCoursesController],
+  providers: [UserCoursesService]
 })
-export class UsercoursesModule {}
+export class UserCoursesModule {}

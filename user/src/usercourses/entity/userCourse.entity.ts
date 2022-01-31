@@ -1,10 +1,13 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { UserEntity } from "src/users/entity/user.entity";
+import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
+@Entity()
 export class UserCourseEntity {
   @PrimaryGeneratedColumn()
   id: string;
+  @ManyToMany(() => UserEntity, user => user.userCourses)
+  @JoinTable()
+  users: UserEntity[];
   @Column()
-  id_user: string;
-  @Column()
-  id_couse: string;
+  id_course: string;
 }
